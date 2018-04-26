@@ -1,0 +1,147 @@
+﻿body {
+	background-color:black;
+}
+#container {
+	width:980px;
+	height:1000px;
+	background-color:#FFFFF0;/*ivory*/
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+}
+#loginbox{
+    width:700px;
+    height:320px;
+    background-color:#FFFFF0;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    position:relative; top:100px;	
+}
+#loginbox img{
+	float:left;
+	height:320px;
+}
+
+#rem{
+	font-size:10pt;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#errmsg {
+	position:absolute; top:240px; left:610px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-weight:bolder;
+	font-size:8pt;
+	color:red;
+	width:80px;
+	text-align:left;
+	visibility:hidden;
+}
+#logo{
+	color:white;
+	font-size:24pt;
+	position:absolute; top:20px; left:500px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#banner #q{
+	color:white;
+	font-size:12pt;
+	position:absolute; top:70px; left:700px;
+}
+#banner #n{
+	color:white;
+	font-size:12pt;
+	position:absolute; top:15px; left:1200px;
+}
+#banner{
+	width:100%;
+	height:100px;
+	background-color:#3399FF; /*Dodgerblue*/
+	color:white;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10pt;
+}
+#banner a{
+	margin-top:5px;
+}
+#dvdsearch{
+	position:absolute; top:75px; left:900px;
+}
+#searchtable {
+	border-collapse:collapse;
+	background-color:#FFFFF0;
+}
+#searchtable td,th{
+	border:1px;
+	border-style:solid;
+    border-color:black;
+    padding:3px;
+}
+.nowrap {
+	white-space:nowrap;
+}
+#add {
+    text-align:center;
+}
+.checks {
+	text-align:center;
+}
+#addsub {
+	background-color:#DC143C;/*Crimson*/
+}
+#qhead{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:large;
+	text-align:center;
+	text-decoration:underline;
+}
+#dvdtable {
+	margin-right:auto;
+	margin-left:auto;
+	border:thick;
+	border-style:solid;
+	border-color:#ADD8E6;/*Lightblue*/
+	margin-top:20px;
+	padding:5px;
+}
+.blueback {
+	background-color:#ADD8E6;
+}
+#dvdtable tr{
+	height:30px;
+}
+#dummy {
+	display:none;
+}
+#myq {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14pt;
+	text-align:center;
+}
+#passform {
+	margin-left:50px;
+}
+#forgotmessage {
+	font-family:Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:12pt;
+	color:red;
+	text-align:left;
+	}
+#member fieldset {
+	margin:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14pt;
+	padding:20px;
+	border-color:black;
+}
+#member label {
+	font-size:12pt;
+	float:left;
+	width:120px;
+}
+#emailmsg {
+	font-size:12pt;
+	color:blue;
+}
