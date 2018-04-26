@@ -40,7 +40,6 @@
 			$titleArray[] = $QueryRes['title'];
 		}
 	}
-
 ?>
 </head>
 
@@ -55,9 +54,8 @@
     <?php
     	echo $fName;
     	echo " " . $lName;
-    	?>
-    
-		(logout)</a>
+    ?>
+    (logout)</a>
    </div>
    
    <?php
@@ -83,14 +81,12 @@
    		}
    		else 
    		{
-   			echo "Error removing DVD";
-   			}
+                    echo "Error removing DVD";
    		}
    	}
-   	else 
-   	{
-   
-   
+   }
+   else 
+   {
    ?>
 
   <form id="queueform" method="post" action="Queue.php">
@@ -110,29 +106,21 @@
         	}
         	
         	$rows = mysql_num_rows($Res);
-        	
-        	//echo json_encode($spot);
-        	//echo json_encode($titleArray);
-        	//echo json_encode($index);
-        
 		for($ndx=1; $ndx-1<$rows; $ndx++)
 		{
 			if ($evenRow%2 == 0)
 			{ 
-        echo "<tr class='blueback'><td>{$ndx}</td><td>".$titleArray[($spot[$ndx-1])-1]."</td><td class='checks'>";
-        echo "<input type='checkbox' id='"."delcheck' name='delcheck[]' value='{$DVDIDarray[($spot[$ndx- 1])-1]}' /></td</tr>";
-        }
-        else
-        {
-    	echo "<tr><td>{$ndx}</td><td>".$titleArray[($spot[$ndx-1])-1]."</td><td class='checks'>";
-        echo "<input type='checkbox' id='"."delcheck' name='delcheck[]' value='{$DVDIDarray[($spot[$ndx- 1])-1]}' /></td</tr>";
-		}
-		
+                            echo "<tr class='blueback'><td>{$ndx}</td><td>".$titleArray[($spot[$ndx-1])-1]."</td><td class='checks'>";
+                            echo "<input type='checkbox' id='"."delcheck' name='delcheck[]' value='{$DVDIDarray[($spot[$ndx- 1])-1]}' /></td</tr>";
+                        }
+                        else
+                        {
+                            echo "<tr><td>{$ndx}</td><td>".$titleArray[($spot[$ndx-1])-1]."</td><td class='checks'>";
+                            echo "<input type='checkbox' id='"."delcheck' name='delcheck[]' value='{$DVDIDarray[($spot[$ndx- 1])-1]}' /></td</tr>";
+                        }		
 		$evenRow++;
 		}
-		
-     
-        ?>
+  ?>
   </table>
   
   </form>

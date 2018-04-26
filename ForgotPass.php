@@ -23,7 +23,6 @@
 	<?php
 		function display()
 		{
-	
 	?>
 
   <form id="passform" method="POST" action="">
@@ -60,33 +59,30 @@
 				}
 				else
 				{
-				$To = "mlantis@pnw.edu";
-				$Subject = "Forgotten Password";
-				$Message = "Your password is: " . $Res['PASSWORD'] . " . We appreciate you.";
-				$Headers = "From: DVD Flix";
+                                    $To = "morri222@pnw.edu";
+                                    $Subject = "Forgotten Password";
+                                    $Message = "Your password is: " . $Res['PASSWORD'] . " . We thank you for choosing DVDFlix.";
+                                    $Headers = "From: DVD Flix";
+                                    $conMsg = mail($To, $Subject, $Message, $Headers);
 				
-				$conMsg = mail($To, $Subject, $Message, $Headers);
-				
-				if ($conMsg)
-				{
-					display();
-					echo "<script>$('#forgotmessage').append('<p>Your password has been sent.</p>');</script>";
-				}
-				else
-				{
+                                    if ($conMsg)
+                                    {
+                                            display();
+                                            echo "<script>$('#forgotmessage').append('<p>Your password has been sent.</p>');</script>";
+                                    }
+                                    else
+                                    {
 					display();
 					echo "<script>$('#forgotmessage').append('<p>There was an error.</p>');</script>";
-					}
+                                    }
 				}
 			}
 		}
 	}
 	else
 	{
-	display();
-	}
-
-  		
+            display();
+	}	
   ?>
 </div>
 </body>

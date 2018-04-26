@@ -7,8 +7,7 @@ if (isset($_POST['submit']))
 {
 	$user = $_POST['membertxt'];
 	$pass = $_POST['passtxt'];
-	
-	
+
 	if($user&$pass)
 	{
 		$checkQuery = mysql_query("SELECT memberid, password, email FROM members WHERE email ='$user' and password='$pass'");
@@ -21,34 +20,33 @@ if (isset($_POST['submit']))
 		{
 			if(!empty($_POST['remch']))
 			{
-				setcookie("email", $user, time()+4200, "/");
-				setcookie("password", $pass, time()+4200, "/");
-				}		
-						else {
-			if(isset($_COOKIE['email']))
-			{
+                            setcookie("email", $user, time()+4200, "/");
+                            setcookie("password", $pass, time()+4200, "/");
+			}		
+			else {
+                            if(isset($_COOKIE['email']))
+                            {
 				setcookie("email", "");
-				}
-				if(isset($_COOKIE['password']))
-			{
+                            }
+                            if(isset($_COOKIE['password']))
+                            {
 				setcookie("password", "");
-				}
-
-			echo "<script>location.href='DVDs.php'</script>";
+                            }
+                            echo "<script>location.href='DVDs.php'</script>";
 			}
 			$sessQuery = mysql_query("SELECT memberid, firstname, lastname FROM members WHERE email='$user' AND password ='$pass'");
 			if (($data = mysql_fetch_assoc($sessQuery)) !== FALSE)
 			{
-				$_SESSION['memid'] = $data['memberid'];
-				$_SESSION['first'] = $data['firstname'];
-				$_SESSION['last'] = $data['lastname'];
-				echo "<script>location.href='DVDs.php?" . session_id() . "'</script>";
+                            $_SESSION['memid'] = $data['memberid'];
+                            $_SESSION['first'] = $data['firstname'];
+                            $_SESSION['last'] = $data['lastname'];
+                            echo "<script>location.href='DVDs.php?" . session_id() . "'</script>";
 			} 
 		}
 	}
 	else {
 		$statement = "error";
-		}
+            }
 }
 ?> 
 
@@ -75,12 +73,10 @@ if (isset($_POST['submit']))
 
     <div id="loginbox">
       <img src="Theater.jpg" />
-
       <form name="logform" method="post" action="login.php" id="logform">
         <br />
 
         <h1>Member Sign In</h1><br />
-
         <div id="formitems">
             Member ID: <input type="text" id="membertxt" name="membertxt" value="<?php if(isset($_COOKIE['email'])) {echo $_COOKIE['email']; } ?>" />
 
@@ -106,8 +102,8 @@ if (isset($_POST['submit']))
 <?php
 	if ($statement == "error")
 	{
-	echo '<script>document.getElementById("errmsg").style.visibility = "visible"</script>';
+            echo '<script>document.getElementById("errmsg").style.visibility = "visible"</script>';
 	}
-	?>
+?>
 </body>
 </html>

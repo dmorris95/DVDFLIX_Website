@@ -8,10 +8,10 @@
 <html>
 
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>DVDs</title>
-<link rel="stylesheet" href="DVDFlix.css" />
-<script type="text/javascript" src="jquery.js"></script>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>DVDs</title>
+    <link rel="stylesheet" href="DVDFlix.css" />
+    <script type="text/javascript" src="jquery.js"></script>
 </head>
 
 <!--get member info
@@ -27,10 +27,9 @@
     <a href='../DVDFlix/<?php echo "Queue.php?" . session_id()?>' id="q">See Queue</a> 
     <a href="Login.php" id="n">
     <?php
-    	
     	echo $fName;
     	echo " " . $lName;
-    	?>
+    ?>
     (logout) </a>
     <form id="dvdsearch" method="post" action="DVDs.php">
       Rating:
@@ -42,20 +41,17 @@
           	$RatingQuery = mysql_query("Select DISTINCT rating FROM dvds ORDER BY rating ASC");
           	while($row = mysql_fetch_array($RatingQuery)) {
           		echo "<option>" . $row{'rating'} . "</option>";}
-          	?>
+          ?>
       </select>
       &nbsp;&nbsp;Year:
       <select id="yearselect" name="yearselect">
         <option>*</option>
 <!--get years-->
 			<?php
-				$YearQuery = mysql_query("SELECT DISTINCT EXTRACT(YEAR FROM date_released) AS exyear FROM dvds ORDER BY exyear ASC");
-				while($row = mysql_fetch_array($YearQuery)) {
-          		echo "<option>" . $row{'exyear'} . "</option>";}
-
+                            $YearQuery = mysql_query("SELECT DISTINCT EXTRACT(YEAR FROM date_released) AS exyear FROM dvds ORDER BY exyear ASC");
+                            while($row = mysql_fetch_array($YearQuery)) {
+                                echo "<option>" . $row{'exyear'} . "</option>";}
 			?>
-
-
 
       </select>
        &nbsp;&nbsp;Title Search: <input type="text" id="searchtxt" name="searchtxt" />
@@ -92,8 +88,7 @@ The form is created by PHP commands writing out a table, looping for each record
 		{
 			$WhereClause .= " WHERE date_released LIKE '%$year%'";
 		}
-		if ($WhereClause != "")
-		 
+		if ($WhereClause != "")	 
 		{	
 			$first = 0;
 			foreach ($SearchArray as $word)
@@ -110,38 +105,32 @@ The form is created by PHP commands writing out a table, looping for each record
 					}
 				}
 			}
-
-		
 		}
 		
-		$Order = " ORDER BY title";
-		$Statement .= $WhereClause . $TextWhere.  $Order;
-		
-		
+	$Order = " ORDER BY title";
+	$Statement .= $WhereClause . $TextWhere.  $Order;
 	 
-     echo "<form id='dvdform' method='POST' action='AddDVDs.php?PHPSESSID='.session_id()'>";
-     echo "<table id='searchtable'>\n";
-     echo "<tr><td colspan=4>&nbsp;</td><td id='add'><input type='Submit' id='addsub' name='Submit' Value='Add' /></td></tr>";
-     echo "<tr>" .
-          "<th>Title</th><th>Rating</th>" .
-          "<th>Description</th>" .
-          "<th>Release Date</th>" .
-          "<th>Add to Queue</tr>\n";
-          $QueryResult = mysql_query('SELECT * FROM dvds');
-          
-                    
-          
-     while (($Row = mysql_fetch_assoc($QueryResult)) !== FALSE) {
-          echo "<tr>";
-          echo "<td class='nowrap'>{$Row['TITLE']}</td>";
-          echo "<td>{$Row['RATING']}</td>";
-          echo "<td>{$Row['DESCRIPTION']}</td>";
-          echo "<td class='nowrap'>{$Row['DATE_RELEASED']}</td>";
-          echo "<td class='checks'><input type='checkbox' name='addcheck[]' value='{$Row["DVDID"]}' /></td></tr>\n";
-       };
-     echo "</table>\n";
-     echo "</form>";
-}
+        echo "<form id='dvdform' method='POST' action='AddDVDs.php?PHPSESSID='.session_id()'>";
+        echo "<table id='searchtable'>\n";
+        echo "<tr><td colspan=4>&nbsp;</td><td id='add'><input type='Submit' id='addsub' name='Submit' Value='Add' /></td></tr>";
+        echo "<tr>" .
+             "<th>Title</th><th>Rating</th>" .
+             "<th>Description</th>" .
+             "<th>Release Date</th>" .
+             "<th>Add to Queue</tr>\n";
+             $QueryResult = mysql_query('SELECT * FROM dvds');
+
+        while (($Row = mysql_fetch_assoc($QueryResult)) !== FALSE) {
+             echo "<tr>";
+             echo "<td class='nowrap'>{$Row['TITLE']}</td>";
+             echo "<td>{$Row['RATING']}</td>";
+             echo "<td>{$Row['DESCRIPTION']}</td>";
+             echo "<td class='nowrap'>{$Row['DATE_RELEASED']}</td>";
+             echo "<td class='checks'><input type='checkbox' name='addcheck[]' value='{$Row["DVDID"]}' /></td></tr>\n";
+          };
+        echo "</table>\n";
+        echo "</form>";
+    }
 ?>
 </div>
 </body>

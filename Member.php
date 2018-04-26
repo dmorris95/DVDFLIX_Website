@@ -2,10 +2,10 @@
 <html>
 
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>Member</title>
-<link rel="stylesheet" href="DVDFlix.css" />
-<script type="text/javascript" src="query.js"></script>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Member</title>
+    <link rel="stylesheet" href="DVDFlix.css" />
+    <script type="text/javascript" src="query.js"></script>
 </head>
 
 <!--get form data
